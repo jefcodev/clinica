@@ -1,0 +1,208 @@
+html {
+    font-size: 16px; 
+}
+.div_consultas{
+    color: #28a745;
+    position: absolute;
+    background-color: white;
+    padding: 7px 10px 10px 10px;
+    margin-left: 18px;
+}
+.titulo_cert_trau{
+    font-weight: bold;
+    padding: 0.8rem;
+    border-bottom: 1px solid #58ACFA;
+    color: #58ACFA;
+    margin-left: 3rem
+}
+.titulo_certificado{
+    font-size: 22px; 
+    text-align: center;
+    font-weight: bold
+}
+.creditos_doctor{
+    margin-bottom: 12rem
+}
+.creditos_doctor p{
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.estilo_cabecera_certificado{
+    border-top: 1px solid #58ACFA;
+    color: #58ACFA;
+    width: 670px;
+    margin-left: 4rem
+}
+.estilo_cabecera_certificado p{    
+    margin-bottom: 2px;
+}
+.required:before{
+    content:"*";
+    color:red;
+    font-size: 20px;
+    font-weight: bold;
+    top: -4px;
+    left: 19px;
+}
+.cuerpo{
+    margin: 9rem 5rem 10rem 8rem;
+}
+.historiap p {
+    margin-top: 0px;
+    margin-bottom: 0rem;
+}
+.bienvenidocabecera{
+    background: url("../images/banner_small.jpg");
+    background-size: cover;
+    height: 30vh;
+}
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100% !important
+}
+.fixed-top {
+    background: #F2F2F2; 
+    height: 75px;
+    font-size: 18px;
+}
+.navbar-light .navbar-brand {
+    color: white;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: bold; 
+}
+@media screen and (max-width: 766px){
+    .navbar-light .navbar-nav .nav-link {
+        color: #1C1C1C !important;
+        text-align: center;
+        font-weight: bold;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease; 
+        background-color: #A9D0F5;
+    }
+    .navbar-collapse {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-top: 8px;
+    }
+}
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: white; 
+}
+.navbar-toggler {
+    font-size: 1.2rem;
+    background: white; 
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-weight: bold;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease; 
+}
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: .5rem;
+}
+.texto_bienvenido {
+    margin-top: 10rem;
+    color: #fff; 
+}
+.quienes_somos {
+    background: #f05f40;
+    color: #fff; 
+}
+.servicios .fa {
+    color: #f05f40; 
+}
+.galeria {
+    background: #424141;
+    color: #fff; 
+}
+.galeria a {
+    display: block;
+    overflow: hidden;
+    margin-top: 1.5rem; 
+}
+.galeria img {
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    min-width: 100%; 
+}
+.galeria a:hover img {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); 
+}
+.footer {
+    color: #fff;
+    background: #1e73be; 
+    height: 180px;
+    padding-top: 30px !important;
+    font-size: 18px;
+    padding-bottom: 11.5rem !important;
+}
+footer a {
+    color: #fff
+}
+.footer-credit{
+    background-color: #144e81;
+    color: #fff;
+    padding: 10px 10px 10px 0px;
+    font-size: 18px;
+    margin-top: -11px;
+}
+.footer-credit a{
+    color: #fff
+}
+.form-control{
+    margin-bottom: 15px;
+    line-height: 1.3 !important
+}
+.espaciofooter{
+    margin-bottom: 13rem
+}
+.footerp p {
+    margin-bottom: 15px;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+.mt-10{
+    margin-top: 10rem
+}
+.mb-10{
+    margin-bottom: 10rem
+}
+.social-icon{
+    font-size: 24px;
+    margin-left: 25px
+}
+.login{
+    border: 2px solid #e7e7e7;
+    box-shadow: 0px 0px 8px 8px #ccc;
+    border-radius: 4px;
+    padding: 30px 
+}
+.logos_azul{
+    color: #58ACFA;
+    text-align: center
+}
+.tabla_cabecera{
+    background: #0056b3;
+    color: white
+}
+.table-icon{
+    color: white
+}
+.dropdown-menu.show {
+    display: block;
+    margin-left: -70px;
+}
+.dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff;
+}

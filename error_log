@@ -1,0 +1,90 @@
+[20-Nov-2018 21:29:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home1/villame5/public_html/clinica/conection/conection.php:2
+Stack trace:
+#0 /home1/villame5/public_html/clinica/index.php(3): include_once()
+#1 {main}
+  thrown in /home1/villame5/public_html/clinica/conection/conection.php on line 2
+[20-Nov-2018 21:29:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home1/villame5/public_html/clinica/conection/conection.php:2
+Stack trace:
+#0 /home1/villame5/public_html/clinica/index.php(3): include_once()
+#1 {main}
+  thrown in /home1/villame5/public_html/clinica/conection/conection.php on line 2
+[20-Nov-2018 21:29:29 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home1/villame5/public_html/clinica/conection/conection.php:2
+Stack trace:
+#0 /home1/villame5/public_html/clinica/index.php(3): include_once()
+#1 {main}
+  thrown in /home1/villame5/public_html/clinica/conection/conection.php on line 2
+[20-Nov-2018 21:29:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home1/villame5/public_html/clinica/conection/conection.php:2
+Stack trace:
+#0 /home1/villame5/public_html/clinica/index.php(3): include_once()
+#1 {main}
+  thrown in /home1/villame5/public_html/clinica/conection/conection.php on line 2
+[16-Aug-2022 18:37:21 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:21 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:22 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:22 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:23 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:23 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:24 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:24 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:25 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:25 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:27 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:27 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:27 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:27 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:29 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:29 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:31 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:31 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:33 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:33 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:34 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:34 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:36 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:36 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:37 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:37 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:37 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:37 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:40 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:40 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:40 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[16-Aug-2022 18:37:40 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:09 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:09 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:12 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:12 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:14 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:14 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:14 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:14 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:15 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:15 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:16 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:16 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:16 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:16 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:17 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:17 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:17 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:17 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:18 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:18 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:18 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:18 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:19 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:19 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:19 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:19 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:20 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:20 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:20 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:20 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:21 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:21 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:21 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:21 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:22 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[28-Aug-2022 12:41:22 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
+[06-Sep-2022 09:54:33 America/Boise] PHP Warning:  session_start(): open(/var/cpanel/php/sessions/ea-php74/sess_demo, O_RDWR) failed: Permission denied (13) in /home1/villame5/public_html/clinica/index.php on line 2
+[06-Sep-2022 09:54:33 America/Boise] PHP Warning:  session_start(): Failed to read session data: files (path: /var/cpanel/php/sessions/ea-php74) in /home1/villame5/public_html/clinica/index.php on line 2
