@@ -16,7 +16,7 @@ if (!Seguridad::tiene_permiso($rol, $pagina, ACCIONES::VER)) {
         <div id="imprimir">
                 <h3 style="color: #007bff; font-weight: bold; margin: 2rem">Historia Clínica Villamedyc</h3>
                 <div class="row" style="margin: 2rem">
-                    <div class="col-md-6 historiap">
+                <div class="col-md-6 historiap">
                         <b class="float-left mr-3">Nombres: </b><p><?php echo $row ['nombres']; ?></p>
                         <b class="float-left mr-3">Apellidos: </b><p><?php echo $row ['apellidos']; ?></p>
                         <b class="float-left mr-3">Número identidad: </b><p><?php echo $row ['numero_identidad']; ?></p>
@@ -24,6 +24,9 @@ if (!Seguridad::tiene_permiso($rol, $pagina, ACCIONES::VER)) {
                         <b class="float-left mr-3">Género: </b><p><?php echo $row ['genero']; ?></p>
                         <b class="float-left mr-3">Teléfono fijo: </b><p><?php echo $row ['telefono_fijo']; ?></p>
                         <b class="float-left mr-3">Teléfono movil: </b><p><?php echo $row ['telefono_movil']; ?></p>
+                         </div>
+                    <div class="col-md-6 historiap">
+                        
                         <b class="float-left mr-3">Dirección: </b><p><?php echo $row ['direccion']; ?></p>
                         <b class="float-left mr-3">Raza: </b><p><?php echo $row ['raza']; ?></p>
                         <b class="float-left mr-3">Ocupación: </b><p><?php echo $row ['ocupacion']; ?></p>
@@ -31,6 +34,8 @@ if (!Seguridad::tiene_permiso($rol, $pagina, ACCIONES::VER)) {
                         <b class="float-left mr-3">Antecedentes personales: </b><p><?php echo $row ['antecedentes_personales']; ?></p>
                         <b class="float-left mr-3">Antecedentes familiares: </b><p><?php echo $row ['antecedentes_familiares']; ?></p>
                     </div>
+                    
+
                 </div>
                 <div class="row" style="margin: 2rem">
                     <div class="col-md-6 historiap">
@@ -59,6 +64,8 @@ if (!Seguridad::tiene_permiso($rol, $pagina, ACCIONES::VER)) {
             </div><br>
         </div>
         <input type="button" class="btn btn-danger" value="Imprimir Historia Clínica" onclick="printDiv('imprimir')"/>
+        <a href="historia_clinica.php">Hiatoria </a>
+        <input type="button" class="btn btn-danger" value="Historia" href="historia_clinica.php"/>
     </section>
     <br>
     <?php

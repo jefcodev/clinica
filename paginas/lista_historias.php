@@ -51,7 +51,7 @@ $pagina = PAGINAS::LISTA_HISTORIAS;
                             echo "<td>" . $row['fecha_hora'] . "</td>";
 
                             if ($permisoVer) {
-                                echo "<td><a class='btn btn-primary btn-sm' href='ver_historia_clinica.php?id_paciente=" . $row['id'] . "'><i style='font-size:18px' class='fas fa-eye'></i></a></td>";
+                                echo "<td><a class='btn btn-primary btn-sm' href='historia_clinica.php?id_paciente=" . $row['id'] . "'><i style='font-size:18px' class='fas fa-eye'></i></a></td>";
                             }
                             echo "</tr>";
                         }
