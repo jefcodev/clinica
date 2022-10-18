@@ -14,8 +14,10 @@ if (isset($_POST['btn_editar_consulta'])) {
     $tratamiento = $_POST['tratamiento'];
     $certificado = $_POST['certificado'];
     $observaciones = $_POST['observaciones'];
+    $precio = $_POST['precio'];
+    $descripcion_precio = $_POST['descripcion_precio'];
     $sql_update_consulta = "UPDATE consultas SET motivo_consulta='$motivo_consulta', examen_fisico='$examen_fisico', diagnostico='$diagnostico', "
-            . " tratamiento='$tratamiento', certificado='$certificado', observaciones = '$observaciones' WHERE id='$id_consulta'";
+            . " tratamiento='$tratamiento', certificado='$certificado', observaciones = '$observaciones' , precio = '$precio', descripcion_precio = '$descipcion_precio' WHERE id='$id_consulta'";
     $result_update_consulta = $mysqli->query($sql_update_consulta);
     if ($result_update_consulta === true) {
         $error = 'Consulta actualizada con éxito';
@@ -62,6 +64,10 @@ if (isset($_POST['btn_editar_consulta'])) {
                         <textarea class="form-control" title="Diagnóstico" placeholder="Diagnóstico" id="diagnostico" name="diagnostico" required><?php echo $rowconsulta['diagnostico']; ?></textarea>
                         <textarea class="form-control" title="Observaciones" placeholder="Observaciones" id="observaciones" name="observaciones"><?php echo $rowconsulta['observaciones']; ?></textarea>
                         <input class="form-control" type="number" title="Días de certificado: no puede exceder los 60 días" value="<?php echo $rowconsulta['certificado']; ?>" placeholder="Días de certificado" id="certificado" name="certificado" min="1" max="60"/>
+
+                        <input class="form-control" type="number" title="Días de certificado: no puede exceder los 60 días" value="<?php echo $rowconsulta['certificado']; ?>" placeholder="Días de certificado" id="certificado" name="certificado" min="1" max="60"/>
+                        
+                        
                         <div <?php echo $class; ?> >
                             <?php echo isset($error) ? $error : ''; ?>
                             <?php echo $close; ?>

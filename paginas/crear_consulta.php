@@ -8,6 +8,8 @@ if (isset($_SESSION['usuario']) && (isset($_SESSION['rol']))) {
     date_default_timezone_set('America/Bogota');
     $fecha_hora = date("Y-m-d H:i:s");
     $id_paciente = $_POST['id_paciente'];
+    $precio = $_POST['precio'];
+    $descripcion_precio = $_POST['descripcion_precio'];
     $motivo_consulta = $_POST['motivo_consulta'];
     $examen_fisico = $_POST['examen_fisico'];
     $diagnostico = $_POST['diagnostico'];
@@ -15,7 +17,7 @@ if (isset($_SESSION['usuario']) && (isset($_SESSION['rol']))) {
     $observaciones = $_POST['observaciones'];
     $id_cita = $_POST['id_cita'];
     $certificado = $_POST['certificado'];
-    $sql = "INSERT INTO consultas (id_paciente,motivo_consulta,examen_fisico,diagnostico,tratamiento,fecha_hora, id_cita, certificado, observaciones) VALUES ('$id_paciente','$motivo_consulta','$examen_fisico','$diagnostico','$tratamiento','$fecha_hora', '$id_cita', '$certificado', '$observaciones')";
+    $sql = "INSERT INTO consultas (id_paciente,motivo_consulta,examen_fisico,diagnostico,tratamiento,fecha_hora, id_cita, certificado, observaciones,precio, descripcion_precio) VALUES ('$id_paciente','$motivo_consulta','$examen_fisico','$diagnostico','$tratamiento','$fecha_hora', '$id_cita', '$certificado', '$observaciones','$precio','$descripcion_precio')";
     $result = $mysqli->query($sql);
     $resultado = "";
     if ($result === true) {
@@ -25,6 +27,8 @@ if (isset($_SESSION['usuario']) && (isset($_SESSION['rol']))) {
         $resultado = $resultado . '<div class="row">';
         $resultado = $resultado . '<div class="col-md-6">';
         $resultado = $resultado . '<textarea class="form-control" placeholder="Motivo de la consulta" id="motivo_consulta" name="motivo_consulta">' . $motivo_consulta . '</textarea>';
+        $resultado = $resultado . '<textarea class="form-control" placeholder="Precio de la consulta" id="precio" name="precio">' . $precio . '</textarea>';
+        $resultado = $resultado . '<textarea class="form-control" placeholder="Descripción de precio de la consulta" id="descripcion_precio" name="descripcion_precio">' . $descripcion_precio . '</textarea>';
         $resultado = $resultado . '<textarea class="form-control" placeholder="Examen físico" id="examen_fisico" name="examen_fisico">' . $examen_fisico . '</textarea>';
         $resultado = $resultado . '<textarea class="form-control" placeholder="Tratamiento" id="tratamiento" name="tratamiento">' . $tratamiento . '</textarea></div>';
         $resultado = $resultado . '<div class="col-md-6">';
