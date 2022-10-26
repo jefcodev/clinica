@@ -4,10 +4,11 @@ $pagina = PAGINAS::EDITAR_CONSULTA;
 $id_consulta = $_GET['id_consulta'];
 $class = '';
 $close = '';
-if(!Seguridad::tiene_permiso($rol, $pagina, ACCIONES::EDITAR)){
+if (!Seguridad::tiene_permiso($rol, $pagina, ACCIONES::EDITAR)) {
     header("location:./inicio.php?status=AD");
 }
 if (isset($_POST['btn_editar_consulta'])) {
+
     $motivo_consulta = $_POST['motivo_consulta'];
     $examen_fisico = $_POST['examen_fisico'];
     $diagnostico = $_POST['diagnostico'];
@@ -17,7 +18,7 @@ if (isset($_POST['btn_editar_consulta'])) {
     $precio = $_POST['precio'];
     $descripcion_precio = $_POST['descripcion_precio'];
     $sql_update_consulta = "UPDATE consultas SET motivo_consulta='$motivo_consulta', examen_fisico='$examen_fisico', diagnostico='$diagnostico', "
-            . " tratamiento='$tratamiento', certificado='$certificado', observaciones = '$observaciones' , precio = '$precio', descripcion_precio = '$descipcion_precio' WHERE id='$id_consulta'";
+        . " tratamiento='$tratamiento', certificado='$certificado', observaciones = '$observaciones' , precio = '$precio', descripcion_precio = '$descipcion_precio' WHERE id='$id_consulta'";
     $result_update_consulta = $mysqli->query($sql_update_consulta);
     if ($result_update_consulta === true) {
         $error = 'Consulta actualizada con éxito';
@@ -35,21 +36,25 @@ if (isset($_POST['btn_editar_consulta'])) {
 }
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+
 <body>
     <section class="cuerpo">
-        <h1>Atención al paciente</h1><br>        
+        <h1>Atención al paciente</h1><br>
         <?php
         $sql_datos_consulta = "SELECT * FROM consultas WHERE id='$id_consulta'";
         $result_datos_consulta = $mysqli->query($sql_datos_consulta);
         $rowconsulta = $result_datos_consulta->fetch_assoc();
         ?>
         <div style="padding: 1% 2% 1% 2%; background-color: #D8D8D8">
-            <b style="font-size: 18px">Datos de la consulta</b><br><br>
-            <form method="post" >
-                <div class="row">                    
+            <b style="font-size: 18px">Datos de la consulta:</b><br><br>
+            <form method="post">
+                <div class="row">
                     <div class="col-md-6">
+                        <p style="font-size: 17px;">Motivo de la consulta:</p>
                         <textarea class="form-control" title="Motivo de la consulta" placeholder="Motivo de la consulta" id="motivo_consulta" name="motivo_consulta" required><?php echo $rowconsulta['motivo_consulta']; ?></textarea>
+                        <p style="font-size: 17px; ">Examen físico:</p>
                         <textarea class="form-control" title="Examen físico" placeholder="Examen físico" id="examen_fisico" name="examen_fisico" required><?php echo $rowconsulta['examen_fisico']; ?></textarea>
+                        <p style="font-size: 17px; ">Tratamiento:</p>
                         <textarea class="form-control" title="Tratamiento" placeholder="Tratamiento" id="tratamiento" name="tratamiento" required><?php echo $rowconsulta['tratamiento']; ?></textarea>
                     </div>
                     <div class="col-md-6">
@@ -59,27 +64,52 @@ if (isset($_POST['btn_editar_consulta'])) {
                             while ($row_cie10 = mysqli_fetch_array($result_cie_10)) {
                                 echo '<option data-tokens="' . $row_cie10['codigo'] . '">' . $row_cie10['codigo'] . '-' . $row_cie10['descripcion'] . '</option>';
                             }
-                            ?> 
+                            ?>
                         </select><br><br>
+                        <p style="font-size: 17px">Diagnóstico:</p>
                         <textarea class="form-control" title="Diagnóstico" placeholder="Diagnóstico" id="diagnostico" name="diagnostico" required><?php echo $rowconsulta['diagnostico']; ?></textarea>
+                        <p style="font-size: 17px">Observaciones:</p>
                         <textarea class="form-control" title="Observaciones" placeholder="Observaciones" id="observaciones" name="observaciones"><?php echo $rowconsulta['observaciones']; ?></textarea>
-                        <input class="form-control" type="number" title="Días de certificado: no puede exceder los 60 días" value="<?php echo $rowconsulta['certificado']; ?>" placeholder="Días de certificado" id="certificado" name="certificado" min="1" max="60"/>
+                        <p style="font-size: 17px">Días de certificado:</p>
+                        <input class="form-control" type="number" title="Días de certificado: no puede exceder los 60 días" value="<?php echo $rowconsulta['certificado']; ?>" placeholder="Días de certificado" id="certificado" name="certificado" min="1" max="60" />
 
-                        <input class="form-control" type="number" title="Días de certificado: no puede exceder los 60 días" value="<?php echo $rowconsulta['certificado']; ?>" placeholder="Días de certificado" id="certificado" name="certificado" min="1" max="60"/>
-                        
-                        
-                        <div <?php echo $class; ?> >
+
+
+
+
+                        <div <?php echo $class; ?>>
                             <?php echo isset($error) ? $error : ''; ?>
                             <?php echo $close; ?>
                         </div>
                     </div>
+
+
                 </div>
-                <div class="row"> 
-                    <div class="col-md-6">                        
-                        <input type="hidden" id="id_cita" name="id_cita" value="<?php echo $id_cita; ?>"/>
+
+                            <div class="row">
+                            <b style="font-size: 18px">Costo de la consulta:</b><br><br>
+                            </div>
+                <div class="row">
+                    
+
+                    <div class="col-md-6">
+                        <p style="font-size: 17px">Precio consulta:</p>
+                        <input class="form-control" type="number"  value="<?php echo $rowconsulta['precio']; ?>" placeholder="Precio" id="precio" name="precio" min="1"  />
+
                     </div>
                     <div class="col-md-6">
-                        <input class="btn btn-primary float-right" type="submit" name="btn_editar_consulta" id="btn_editar_consulta" value="Guardar datos de la consulta"/><br>
+                        <p style="font-size: 17px">Detalles precio:</p>
+                        <textarea class="form-control" title="descripcion_precio" placeholder="Descripción precio" id="descripcion_precio" name="descripcion_precio"><?php echo $rowconsulta['descripcion_precio']; ?></textarea>
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="hidden" id="id_cita" name="id_cita" value="<?php echo $id_cita; ?>" />
+                    </div>
+                    <div class="col-md-6">
+                        <input class="btn btn-primary float-right" type="submit" name="btn_editar_consulta" id="btn_editar_consulta" value="Guardar datos de la consulta" /><br>
                     </div>
                 </div>
             </form>
@@ -94,7 +124,7 @@ if (isset($_POST['btn_editar_consulta'])) {
     <script type="text/javascript">
         var select = document.getElementById("cie_10");
         var tArea = document.getElementById("diagnostico");
-        select.onchange = function () {
+        select.onchange = function() {
             if (tArea.value.length === 0) {
                 tArea.value = select.options[select.selectedIndex].value;
             } else {

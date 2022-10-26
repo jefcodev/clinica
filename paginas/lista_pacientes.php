@@ -62,9 +62,9 @@ if (isset($status)) {
                             <th style="width: 93px">Acciones</th>
                             
                             <?php
-                            if ($permisoEdicion) {
+                           /*  if ($permisoEdicion) {
                                 echo '<th style="width: 93px">Acciones</th>';
-                            }
+                            } */
                             ?>
                         </tr>
                     </thead>
