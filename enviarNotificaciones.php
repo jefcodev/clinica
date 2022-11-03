@@ -2,35 +2,25 @@
 include 'conection/conection.php';
 require 'vendor/autoload.php';
 
-// Descripcion general
-// Se realizara la ejecucion cada hora
-//obtiene la fecha de la cita, el telefono movil y los nombres cuando aun no se haya realizado la consulta
-$sql_get_cites = "SELECT c.fecha_cita, p.telefono_movil, p.nombres FROM citas c inner join pacientes p on c.id_paciente=p.id WHERE consultado='no'";
+date_default_timezone_set('America/Guayaquil');
+
+$fecha_actual = date('m-d-Y h:i:s');
+$fechaActualAño = date("Y");
+$fechaActualMes = date("m");
+$fechaActualDia = date("d");
+
+setlocale(LC_TIME, "es_ES");
+$horaActual = strftime("%H:%M");
+$horaActualSeparate = (explode(":", $horaActual));
+$horaActual_HORA = $horaActualSeparate[0];
+$horaActual_MINUTO = $horaActualSeparate[1];
+
+
+$sql_get_cites = "SELECT c.fecha_cita, p.telefono_movil, p.nombres FROM citas c inner join 
+pacientes p on c.id_paciente=p.id WHERE consultado='no' and year(c.fecha_cita)='$fechaActualAño' and Month(c.fecha_cita)='$fechaActualMes'";
 $query_crear_notificacion = $mysqli->query($sql_get_cites);
 if ($query_crear_notificacion == TRUE) {
-  date_default_timezone_set('America/Guayaquil');
-  //Obetner fecha y hora actual
-  $fecha_actual = date('m-d-Y h:i:s a', time());
-  // separar la fecha  y la hora
-  $fecha_actual_separate = (explode(" ", $fecha_actual));
-  //fecha separada
-  $fecha_actual_dma = $fecha_actual_separate[0];
-  //Separar Dia mes año
-  $fecha_actual_separate_dma = (explode("-", $fecha_actual_dma));
-  //Dia
-  $fecha_actual_dia = $fecha_actual_separate_dma[0];
-  //mes
-  $fecha_actual_mes = $fecha_actual_separate_dma[1];
-  //año
-  $fecha_actual_año = $fecha_actual_separate_dma[2];
-  // hora separada
-  $fecha_actual_hms = $fecha_actual_separate[1];
-  //Separar hora y minutos
-  $fecha_actual_separate_hms = (explode(":", $fecha_actual_hms));
-  //hora
-  $fecha_actual_hora = $fecha_actual_separate_hms[0];
-  //minutos
-  $fecha_actual_minutos = $fecha_actual_separate_hms[1];
+
 
   while ($row = mysqli_fetch_array($query_crear_notificacion)) {
     $getObjectCites = array(
@@ -38,6 +28,8 @@ if ($query_crear_notificacion == TRUE) {
       'fecha_cita' => $row['fecha_cita'],
       'telefono_movil' => $row['telefono_movil']
     );
+    // echo $getObjectCites['fecha_cita'];
+    // echo "<br>";
 
     $fecha_cita_separate = (explode(" ", $getObjectCites['fecha_cita']));
     //fecha separada
@@ -50,6 +42,7 @@ if ($query_crear_notificacion == TRUE) {
     $fecha_cita_mes = $fecha_cita_separate_dma[1];
     //año
     $fecha_cita_dia = $fecha_cita_separate_dma[2];
+    // echo $fecha_cita_dia;
     // hora separada
     $fecha_cita_hms = $fecha_cita_separate[1];
     //Separar hora y minutos
@@ -58,22 +51,72 @@ if ($query_crear_notificacion == TRUE) {
     $fecha_cita_hora = $fecha_cita_separate_hms[0];
     //minutos
     $fecha_cita_minutos = $fecha_cita_separate_hms[1];
-    //La primera ejecucion se realizara  a las 00:00 
+    $fechaCompararPrincipal = new DateTime($horaActual);
 
-    // la primera condición evalua si la fecha del dia actual es igual a la fecha del dia de cita agendada,
-    // y para asegurar que sea 24 horas antes de la cita se verifica si los minutos y la hora son iguales a 0 y enviara el mensaje con 24 horas de anticipacion 
-    if (($fecha_actual_dia == $fecha_cita_dia && $fecha_actual_hora == 0 && $fecha_actual_minutos == 0)) {
-      echo "Haciendo condicion 1";
-      echo "<br>";
-      $mensaje = "RECORDATORIO. " . $getObjectCites['nombres'] . " usted tiene una cita agenda para la fecha: " . $getObjectCites['fecha_cita'];
-      $telefonoMovil = $getObjectCites['telefono_movil'];
-      sendMessajeWhassap($mensaje, $telefonoMovil);
-      //segunda condicion evalua si falta n 4 horas sumando la hora actual + 4 y si es igual ala hora de la dita enviara con 4 horas de ainticipacion
-    } elseif (($fecha_actual_hora + 4) == $fecha_cita_hora) {
+    $rangoPrincipalMaximo = new DateTime("21:00");
+    $rangoPrincipalMinimo = new DateTime("23:59");
+    if ($fechaCompararPrincipal >= $rangoPrincipalMaximo && $fechaCompararPrincipal <= $rangoPrincipalMinimo) {
+      echo "Inecceesario resolver";
+    } else {
+      // echo "AHciend aca";
 
-      $mensaje = "RECORDATORIO. " . $getObjectCites['nombres'] . " usted tiene una cita agenda para dentro de 4 horas";
-      $telefonoMovil = $getObjectCites['telefono_movil'];
-      sendMessajeWhassap($mensaje, $telefonoMovil);
+      if ($fecha_cita_dia = $fechaActualDia && $horaActual_HORA < $fecha_cita_hora) {
+        // echo "haciendo esto";
+        $hora_inicio = new DateTime($horaActual);
+        $hora_fin = new DateTime($fecha_cita_hms);
+        $rangoMaximo = new DateTime("04:00");
+        // echo ($rangoMaximo->format('H:i'));
+        $rangoMinimo = new DateTime("03:00");
+        $diferencia = $hora_fin->diff($hora_inicio);
+        $resultTiempoRestanteParaLaCita = $diferencia->format('%H:%i');
+        $resultTiempoRestanteParaLaCita = new DateTime($resultTiempoRestanteParaLaCita);
+        $textResultTiempoRestanteParaLaCita = $diferencia->format('%H Horas con %i minutos');
+        //  echo $diferencia->format('%H horas %i minutos');
+        // echo ("resultTiempoRestanteParaLaCita: " .  $textResultTiempoRestanteParaLaCita);
+        // $a=($resultTiempoRestanteParaLaCita >= $rangoMaximo);
+        // echo "a".$a;
+
+        if ($resultTiempoRestanteParaLaCita <= $rangoMaximo && $resultTiempoRestanteParaLaCita >= $rangoMinimo) {
+          // echo "haciendo esto dentro if";
+          $mensaje = "RECORDATORIO! " . $getObjectCites['nombres'] . " usted tiene una cita agenda para dentro de " . $textResultTiempoRestanteParaLaCita . "";
+          $telefonoMovil = $getObjectCites['telefono_movil'];
+          //  sendMessajeWhassap($mensaje, $telefonoMovil);
+        }
+      }
+      $fecha_cita_separate = (explode(" ", $getObjectCites['fecha_cita']));
+      //fecha separada
+      $fecha_cita_dma = $fecha_cita_separate[0];
+      //Separar Dia mes año
+      $fecha_cita_separate_dma = (explode("-", $fecha_cita_dma));
+      //Dia
+      $fecha_cita_año = $fecha_cita_separate_dma[0];
+      //mes
+      $fecha_cita_mes = $fecha_cita_separate_dma[1];
+      //año
+      $fecha_cita_dia = $fecha_cita_separate_dma[2];
+      // echo $fecha_cita_dia;
+      // hora separada
+      $fecha_cita_hms = $fecha_cita_separate[1];
+      //Separar hora y minutos
+      $fecha_cita_separate_hms = (explode(":", $fecha_cita_hms));
+      //hora
+      $fecha_cita_hora = $fecha_cita_separate_hms[0];
+      //minutos
+      $fecha_cita_minutos = $fecha_cita_separate_hms[1];
+      // echo " fecah actual hora: ".($horaActual_HORA );
+      // echo " fecha cita hora: ".($fecha_cita_hora);
+      // // echo "<br>";
+      // echo " fecha cita dia: ".($fecha_cita_dia );
+      // echo " fecha actual dia + uno: ".($fechaActualDia + 1);
+      // echo "<br>";  
+
+      if ($fecha_cita_dia == ($fechaActualDia + 1) && $horaActual_HORA == $fecha_cita_hora) {
+        echo "haciendo esto dentoro id 2";
+
+        $mensaje = "RECORDATORIO. " . $getObjectCites['nombres'] . " usted tiene una cita agenda para la fecha para dentro de 24 horas";
+        $telefonoMovil = $getObjectCites['telefono_movil'];
+        sendMessajeWhassap($mensaje, $telefonoMovil);
+      }
     }
   }
 } else {
@@ -83,13 +126,18 @@ if ($query_crear_notificacion == TRUE) {
 
 function sendMessajeWhassap($mensaje, $numeroMovil)
 {
-  $token =  "GA221031231835";
+  echo $mensaje;
+  echo $numeroMovil;
+  $numeroSeparete = str_split($numeroMovil);
+  $numeresumido = $numeroSeparete[1] . "" . $numeroSeparete[2] . "" . $numeroSeparete[3] . "" . $numeroSeparete[4] . "" . $numeroSeparete[5] . "" . $numeroSeparete[6] . "" . $numeroSeparete[7] . "" . $numeroSeparete[8] . "" . $numeroSeparete[9];
+  echo $numeresumido;
+  $token =  "GA221103022652";
   $client = new GuzzleHttp\Client(['verify' => false]);
   $payload = array(
     "op" => "registermessage",
     "token_qr" => $token,
     "mensajes" => array(
-      array("numero" => $numeroMovil, "mensaje" => $mensaje),
+      array("numero" => "593" . $numeresumido, "mensaje" => $mensaje),
     )
   );
   $res = $client->request('POST', 'https://script.google.com/macros/s/AKfycbyoBhxuklU5D3LTguTcYAS85klwFINHxxd-FroauC4CmFVvS0ua/exec', [
