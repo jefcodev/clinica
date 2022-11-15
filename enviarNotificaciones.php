@@ -27,9 +27,10 @@ if ($query_crear_notificacion == TRUE) {
       'nombres' => $row['nombres'],
       'fecha_cita' => $row['fecha_cita'],
       'telefono_movil' => $row['telefono_movil']
+     
     );
-    // echo $getObjectCites['fecha_cita'];
-    // echo "<br>";
+    echo $getObjectCites['fecha_cita'];
+     echo "<br>";
 
     $fecha_cita_separate = (explode(" ", $getObjectCites['fecha_cita']));
     //fecha separada
@@ -60,8 +61,10 @@ if ($query_crear_notificacion == TRUE) {
     } else {
       // echo "AHciend aca";
 
-      if ($fecha_cita_dia = $fechaActualDia && $horaActual_HORA < $fecha_cita_hora) {
-        // echo "haciendo esto";
+      if ($fecha_cita_dia == $fechaActualDia && $horaActual_HORA < $fecha_cita_hora) {
+        
+         echo "haciendo esto".$fecha_cita_dia."==".$fechaActualDia."&&".$horaActual_HORA."<".$fecha_cita_hora;
+         echo "<br>";
         $hora_inicio = new DateTime($horaActual);
         $hora_fin = new DateTime($fecha_cita_hms);
         $rangoMaximo = new DateTime("04:00");
@@ -80,7 +83,7 @@ if ($query_crear_notificacion == TRUE) {
           // echo "haciendo esto dentro if";
           $mensaje = "RECORDATORIO! " . $getObjectCites['nombres'] . " usted tiene una cita agenda para dentro de " . $textResultTiempoRestanteParaLaCita . "";
           $telefonoMovil = $getObjectCites['telefono_movil'];
-          //  sendMessajeWhassap($mensaje, $telefonoMovil);
+            sendMessajeWhassap($mensaje, $telefonoMovil);
         }
       }
       $fecha_cita_separate = (explode(" ", $getObjectCites['fecha_cita']));
@@ -131,7 +134,7 @@ function sendMessajeWhassap($mensaje, $numeroMovil)
   $numeroSeparete = str_split($numeroMovil);
   $numeresumido = $numeroSeparete[1] . "" . $numeroSeparete[2] . "" . $numeroSeparete[3] . "" . $numeroSeparete[4] . "" . $numeroSeparete[5] . "" . $numeroSeparete[6] . "" . $numeroSeparete[7] . "" . $numeroSeparete[8] . "" . $numeroSeparete[9];
   echo $numeresumido;
-  $token =  "GA221103022652";
+  $token =  "GA221115083153";
   $client = new GuzzleHttp\Client(['verify' => false]);
   $payload = array(
     "op" => "registermessage",
