@@ -135,10 +135,10 @@ class NumeroALetras {
         switch ($valor) {
             case 'Mon': return 'lunes';
             case 'Tue': return 'martes';
-            case 'Wed': return 'mi®¶rcoles';
+            case 'Wed': return utf8_decode('mi√©rcoles');
             case 'Thu': return 'jueves';
             case 'Fri': return 'viernes';
-            case 'Sat': return 's®¢bado';
+            case 'Sat': return utf8_decode('s√°bado');
             case 'Sun': return 'domingo';
             default:
                 break;

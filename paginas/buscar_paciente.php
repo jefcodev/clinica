@@ -10,7 +10,7 @@ if (isset($_SESSION['usuario']) && (isset($_SESSION['rol']))) {
     $sql = "SELECT * FROM pacientes where numero_identidad = '$numero_identidad'";
     $result = $mysqli->query($sql);
     $resultado = "";
-
+ 
     if ($result->num_rows == 0) {
                 $resultado = $resultado . "<p style='color: red; font-size:18'>" . '"No se encuentra un paciente registrado con la identificación ingresada, a continuación la opción para crearlo"' . "</p>";
                 $resultado = $resultado . '<a target="_blanck" href="crear_paciente.php" class="btn btn-success btn-sm"> Crear nuevo paciente</a>';

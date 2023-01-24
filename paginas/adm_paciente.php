@@ -34,6 +34,35 @@ if (isset($_POST['btn_crear_paciente'])) {
         header("location:crear_paciente.php?status=ER");
     }
 }
+if (isset($_POST['btn_crear_paciente_cita'])) {
+    date_default_timezone_set('America/Bogota');
+    $fecha_hora = date("Y-m-d H:i:s");
+    $numero_identidad = $_POST['numero_identidad'];
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $fecha_nacimiento = $_POST['fecha_nacimiento'];
+    $genero = $_POST['genero'];
+    $telefono_fijo = $_POST['telefono_fijo'];
+    $telefono_movil = $_POST['telefono_movil'];
+    $direccion = $_POST['direccion'];
+    $raza = $_POST['raza'];
+    $ocupacion = $_POST['ocupacion'];
+    $estado_civil = $_POST['estado_civil'];
+    $correo_electronico = $_POST['correo_electronico'];
+    $antecedentes_personales = $_POST['antecedentes_personales'];
+    $antecedentes_familiares = $_POST['antecedentes_familiares'];
+
+    $sql_crear_paciente = "INSERT INTO pacientes (numero_identidad, nombres, apellidos, fecha_nacimiento, genero, telefono_fijo, telefono_movil, "
+            . "direccion, raza, ocupacion, estado_civil, correo_electronico, antecedentes_personales, antecedentes_familiares, fecha_hora) "
+            . "VALUES ('$numero_identidad', '$nombres', '$apellidos', '$fecha_nacimiento', '$genero', '$telefono_fijo', '$telefono_movil', "
+            . "'$direccion', '$raza', '$ocupacion', '$estado_civil', '$correo_electronico', '$antecedentes_personales', '$antecedentes_familiares', '$fecha_hora')";
+    $query_crear_paciente = $mysqli->query($sql_crear_paciente);
+    if ($query_crear_paciente == TRUE) {
+        header("location:crear_cita.php");
+    } else {
+        header("location:crear_paciente.php?status=ER");
+    }
+}
 
 if (isset($_POST['btn_editar_usuario'])) {
     $id_usuario = $_POST['id_usuario'];

@@ -40,3 +40,4 @@ if (isset($_POST['btn_editar_cita'])) {
         echo 'No se pudo crear la cita';
     }
 }
+ 

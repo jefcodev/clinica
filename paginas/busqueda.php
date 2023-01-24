@@ -24,7 +24,7 @@ if (isset($status)) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 </head>
@@ -34,7 +34,43 @@ if (isset($status)) {
 
 
 
+        <div class="col-md-6 offset-3 mt-5">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h4>Paciente</h4>
+                </div>
+                <div class="card-body" style="height: 280px;">
+                    <div>
 
+                        <select class="select2 form-control" data-rel="chosen" name="id_paciente" id="id_paciente">
+                            <?php
+                            // $resultado = "";
+                            // while ($row = $result->fetch_assoc()) {
+                            //     echo "<option>"
+                            //         . "CI: " . $row["numero_identidad"] . "   " . $row["nombres"] .
+                            //         " " . $row["apellidos"] .
+
+                            //         "</option>";
+                            //     $id_paciente = ["id_paciente"];
+                            //     $resultado = $resultado . "<input type='hidden' id='id_paciente_resultado' name='id_paciente_resultado' value='" . $row['id'] . "'/>";
+                            // }
+                            if ($result) {
+                                while ($fila = mysqli_fetch_array($result)) {
+                            ?>
+                                    <option value="<?php echo $fila["id"] ?>"><?php echo $fila["nombres"] ?></option>
+                            <?php
+                                }
+                            }
+
+                            ?>
+
+                        </select>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
         <section class="cuerpo">
@@ -51,13 +87,28 @@ if (isset($status)) {
                 </div>
             </div>
             <div class="row">
-
-                <div class="col-md-12">
+                <div class="col-md-2">
+                    <input class="form-control" placeholder="Cédula o Pasaporte" id="numero_identidad" name="numero_identidad" />
+                    <div id="resultado_paciente"></div>
+                </div>
+                <div class="col-md-1">
+                    <input class="btn btn-primary" type="button" name="btn_buscar_paciente" id="btn_buscar_paciente" value="Buscar" onclick="buscar_paciente()" />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
                     <form action="adm_citas.php" method="post">
                         <div class="row">
                             <div class="col-md-8">
-
-
+                                <select class="form-control" id="doctor" name="doctor" required>
+                                    <option value="" selected="" hidden="">Seleccione el Doctor</option>
+                                    <?php
+                                    $sql_traer_doctor = "SELECT * FROM usuarios WHERE rol = 'doc'";
+                                    $consulta_traer_doctor = $mysqli->query($sql_traer_doctor);
+                                    while ($row = mysqli_fetch_array($consulta_traer_doctor)) {
+                                        echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . ' ' . $row['apellidos'] . "</option>";
+                                    }
+                                    ?>
+                                </select>
                                 <?php
 
                                 $servername = "localhost";
@@ -73,7 +124,6 @@ if (isset($status)) {
 
                                 ?>
                                 <select class="select2 form-control" data-rel="chosen" id='id_paciente' name='id_paciente'>
-                                    <option value="" selected="" hidden="">Seleccione el Paciente</option>
                                     <?php
                                     // $resultado = "";
                                     // while ($row = $result->fetch_assoc()) {
@@ -88,27 +138,14 @@ if (isset($status)) {
                                     if ($result) {
                                         while ($fila = mysqli_fetch_array($result)) {
                                     ?>
-                                            <option value="<?php echo $fila["id"] ?>"><?php echo    $fila["numero_identidad"] . "  " .  $fila["nombres"] . "  " . $fila["apellidos"] ?></option>
+                                            <option value="<?php echo $fila["id"] ?>"><?php echo $fila["nombres"] ?></option>
                                     <?php
                                         }
                                     }
 
                                     ?>
-                                </select>
-                                    <br><br>
-                                <select class="form-control" id="doctor" name="doctor" required>
-                                    <option value="" selected="" hidden="">Seleccione el Doctor</option>
-                                    <?php
-                                    $sql_traer_doctor = "SELECT * FROM usuarios WHERE rol = 'doc'";
-                                    $consulta_traer_doctor = $mysqli->query($sql_traer_doctor);
-                                    while ($row = mysqli_fetch_array($consulta_traer_doctor)) {
-                                        echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . ' ' . $row['apellidos'] . "</option>";
-                                    }
-                                    ?>
-                                </select>
-
-                                <!-- <input type='hidden' id='id_paciente' name='id_paciente'/> -->
-                                <input class="form-control" type="text" autocomplete="off" placeholder="Fecha y hora de la cita" id="fecha_cita" name="fecha_cita" required /><br>
+                                    <!-- <input type='hidden' id='id_paciente' name='id_paciente'/> -->
+                                    <input class="form-control" type="text" autocomplete="off" placeholder="Fecha y hora de la cita" id="fecha_cita" name="fecha_cita" required /><br>
                             </div>
                             <div class="col-md-4">
                                 <input class="btn btn-primary" type="submit" name="btn_crear_cita" id="btn_crear_cita" value="Aceptar" />
@@ -132,7 +169,7 @@ if (isset($status)) {
     <script type="text/javascript">
         $('.select2').select2({});
     </script>
-    <script language="javascript" src="../js/jquery.datetimepicker.full.min.js"></script>
+<script language="javascript" src="../js/jquery.datetimepicker.full.min.js"></script>
     <script>
         $('#fecha_cita').datetimepicker({
             startDate: new Date(),

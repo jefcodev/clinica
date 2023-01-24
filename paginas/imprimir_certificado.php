@@ -3,6 +3,7 @@ include 'header.php';
 include './NumeroALetras.php';
 $id_consulta = $_GET['idconsulta'];
 ?>
+
 <body>
     <section class="cuerpo">       
         <?php

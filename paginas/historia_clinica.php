@@ -25,6 +25,7 @@ class PDF extends FPDF
     }
 }
 
+
 // Instanciation of inherited class
 
 
@@ -99,7 +100,7 @@ while ($row_citas = $resultado_citas->fetch_assoc()) {
     $pdf->Cell(45, 10, $row_citas['fecha_hora'], 1, 0, 'C', 0);
     $pdf->Ln(10);
     $pdf->Cell(50, 10, utf8_decode('MOTIVO CONSULTA'), 1, 0, 'C', 1);
-    $pdf->Cell(140, 10, $row_citas['motivo_consulta'], 1, 0, 'L', 0);
+    $pdf->MultiCell(140,6,$row_citas['motivo_consulta'], 'LRT', 'L', false);
     $pdf->Ln(10);
     $pdf->Cell(50, 10, utf8_decode('EXAMEN FÍSICO'), 1, 0, 'C', 1);
     $pdf->Cell(140, 10, $row_citas['examen_fisico'], 1, 0, 'L', 0);

@@ -42,6 +42,7 @@ include 'header.php';
                     <textarea class="form-control" title="Antecedentes familiares" placeholder="Antecedentes familiares" id="antecedentes_familiares" name="antecedentes_familiares"></textarea>  
                     <div class="float-right">
                         <input class="btn btn-primary" type="submit" name="btn_crear_paciente" id="btn_crear_paciente" value="Aceptar" />
+                        <input class="btn btn-primary" type="submit" name="btn_crear_paciente_cita" id="btn_crear_paciente_cita" value="Guardar y Crear Cita" />
                         <a class="btn btn-danger" href="lista_pacientes.php">Cancelar</a>
                     </div>                    
                 </div>

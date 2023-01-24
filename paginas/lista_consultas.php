@@ -42,7 +42,7 @@ $pagina = PAGINAS::LISTA_CONSULTAS;
                             if ($row['certificado'] == null) {
                                 $certificado = '';
                             } else {
-                                $certificado = "<a class='btn btn-warning btn-sm ml-1' href='imprimir_certificado.php?idconsulta=" . $row['id'] . "'><i class='fas fa-print table-icon'></i></a>";
+                                $certificado = "<a class='btn btn-warning btn-sm ml-1' href='imprimir_certificado1.php?idconsulta=" . $row['id'] . "'><i class='fas fa-print table-icon'></i></a>";
                             }
                             echo "<td>";
                             if ($rol == 'adm' or ( $permisoEdicion and $row['id_doctor'] == $id_usuario)) {
